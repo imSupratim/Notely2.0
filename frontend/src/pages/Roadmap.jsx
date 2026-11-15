@@ -47,81 +47,87 @@ const Roadmap = () => {
     }
   };
 
-  const handleDelete = ()=>{
+  const handleDelete = () => {
     setRoadmap(null);
-  }
+  };
 
   return (
     <div className="min-h-screen bg-amber-100">
       <div className="p-10">
-        <div className="font-bold text-xl p-5 bg-amber-200 rounded-2xl pl-10">
+        <div className="font-bold text-md md:text-xl p-5 bg-amber-200 rounded-2xl pl-10">
           Crete your own <span className="text-violet-600">Roadmap</span>
         </div>
 
-        <div className="p-10">
+        <div className="md:p-10 py-10 md:text-lg text-sm">
           <form onSubmit={handleSubmit}>
-            <div className="flex gap-2 items-center">
-              <label htmlFor="topic-name" className="font-medium text-lg">
-                What you want to learn:
-              </label>
-              <input
-                id="topic-name"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                type="text"
-                placeholder="e.g. React.js"
-                className="bg-amber-200 border border-amber-500 p-2 rounded-2xl"
-                required
-              />
-            </div>
-
-            <div className="flex gap-2 mt-2 items-center">
-              <label className="font-medium text-lg">Available Days:</label>
-              <input
-                min="1"
-                type="number"
-                value={days}
-                onChange={(e) => setDays(e.target.value)}
-                placeholder="e.g. 7"
-                className="bg-amber-200 border border-amber-500 p-2 rounded-2xl"
-                required
-              />
-            </div>
-
-            <div className="flex gap-2 mt-2 items-center">
-              <label className="font-medium text-lg">
-                Hours per Day: {hours} hr
-              </label>
-              <span className="pt-3 pb-2 px-4 border border-amber-500 rounded-2xl bg-amber-200">
+            <div className="md:flex justify-between md:px-20">
+              <div className="flex flex-col gap-2 items-start justify-center">
+                <label htmlFor="topic-name" className="font-medium">
+                  What you want to learn:
+                </label>
                 <input
-                  type="range"
-                  min="1"
-                  max="12"
-                  step="1"
-                  value={hours}
-                  onChange={(e) => setHours(Number(e.target.value))}
-                  className="accent-blue-600 cursor-pointer border"
+                  id="topic-name"
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  type="text"
+                  placeholder="e.g. React.js"
+                  className="bg-amber-200 border border-amber-500 w-[35vw] p-2 rounded-2xl"
                   required
                 />
-              </span>
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>1 hour - 12 hours</span>
+              </div>
+
+              <div className="flex flex-col items-start gap-2 mt-2 justify-center">
+                <label className="font-medium ">Available Days:</label>
+                <input
+                  min="1"
+                  type="number"
+                  value={days}
+                  onChange={(e) => setDays(e.target.value)}
+                  placeholder="e.g. 7"
+                  className="bg-amber-200 border border-amber-500 p-2 rounded-2xl w-[35vw]"
+                  required
+                />
               </div>
             </div>
 
-            <div className="bg-amber-200 mt-3 p-4 rounded-lg">
-              <p className="text-gray-600">Total available study time</p>
-              <p className="text-2xl font-bold text-blue-700">
-                {(Number(days) || 0) * hours} hours
-              </p>
+            <div className="md:px-20">
+              <div className="flex flex-col items-start gap-2 mt-2 justify-center">
+                <label className="font-medium   ">
+                  Hours per Day: {hours} hr
+                </label>
+                <span className="pt-3 pb-2 px-4 border  border-amber-500 rounded-2xl bg-amber-200">
+                  <input
+                    type="range"
+                    min="1"
+                    max="12"
+                    step="1"
+                    value={hours}
+                    onChange={(e) => setHours(Number(e.target.value))}
+                    className="accent-blue-600 cursor-pointer border md:w-[76vw] w-[60vw]"
+                    required
+                  />
+                </span>
+                <div className="flex justify-between text-sm text-gray-500">
+                  <span>1 hour - 12 hours</span>
+                </div>
+              </div>
             </div>
 
-            <button
-              type="submit"
-              className="bg-blue-500 text-white mt-10 font-semibold px-4 py-2 rounded-2xl cursor-pointer"
-            >
-              {loading ? "Loading..." : "Create Roadmap"}
-            </button>
+            <div className="flex flex-col md:flex-row md:px-20 mt-8 justify-between">
+              <div className="bg-amber-200 mt-3 p-4 rounded-lg">
+                <p className="text-gray-600">Total available study time</p>
+                <p className="text-2xl font-bold text-blue-700">
+                  {(Number(days) || 0) * hours} hours
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-blue-500 text-white mt-10 font-semibold px-4 py-2 rounded-2xl cursor-pointer"
+              >
+                {loading ? "Loading..." : "Create Roadmap"}
+              </button>
+            </div>
 
             {loading && (
               <>
@@ -145,10 +151,11 @@ const Roadmap = () => {
             >
               Save
             </button>
-            {saving && <div className="pulse">
-                Saving...
-              </div>}
-            <button onClick={handleDelete} className="bg-red-500/40 border-red-400 border-2  text-red-800 font-semibold text-xl px-5 py-2 rounded-2xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all">
+            {saving && <div className="pulse">Saving...</div>}
+            <button
+              onClick={handleDelete}
+              className="bg-red-500/40 border-red-400 border-2  text-red-800 font-semibold text-xl px-5 py-2 rounded-2xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all"
+            >
               Delete
             </button>
           </div>
