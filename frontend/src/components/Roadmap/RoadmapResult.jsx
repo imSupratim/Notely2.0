@@ -6,40 +6,40 @@ const RoadmapResult = (props) => {
       {/* heading */}
       <div className="rounded-2xl px-5 py-2 bg-amber-200 shadow-xl">
         <div>
-          <span className="font-bold text-lg text-purple-700">Title:</span>{" "}
-          <span className="font-semibold text-lg">{props.roadmap.title}</span>
+          <span className="font-bold md:text-lg text-md text-purple-700">Title:</span>{" "}
+          <span className="font-semibold md:text-lg text-md">{props.roadmap.title}</span>
         </div>
 
         <div>
-          <span className="font-bold text-lg text-purple-700">
+          <span className="font-bold md:text-lg text-md text-purple-700">
             Hours Per Day:{" "}
           </span>
-          <span className="font-semibold text-lg">
+          <span className="font-semibold md:text-lg text-md">
             {props.roadmap.hoursPerDay}
           </span>
         </div>
 
         <div>
-          <span className="font-bold text-lg text-purple-700">
+          <span className="font-bold md:text-lg text-md text-purple-700">
             Total Days:{" "}
           </span>
-          <span className="font-semibold text-lg">
+          <span className="font-semibold md:text-lg text-md">
             {props.roadmap.totalDays}
           </span>
         </div>
 
         <div>
-          <span className="font-bold text-lg text-purple-700">
+          <span className="font-bold md:text-lg text-md text-purple-700">
             Total Hours:{" "}
           </span>
-          <span className="font-semibold text-lg">
+          <span className="font-semibold md:text-lg text-md">
             {props.roadmap.totalHours}
           </span>
         </div>
       </div>
 
       {/* body */}
-      <div className="mt-8  px-5 py-2 rounded-2xl ">
+      <div className="mt-8  md:px-5 py-2 rounded-2xl ">
         {props.roadmap.days.map((day, index) => (
           <div
             key={index}

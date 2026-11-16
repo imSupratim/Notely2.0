@@ -53,7 +53,7 @@ const Roadmap = () => {
 
   return (
     <div className="min-h-screen bg-amber-100">
-      <div className="p-10">
+      <div className="md:p-10 p-3">
         <div className="font-bold text-md md:text-xl p-5 bg-amber-200 rounded-2xl pl-10">
           Crete your own <span className="text-violet-600">Roadmap</span>
         </div>
@@ -138,7 +138,7 @@ const Roadmap = () => {
         </div>
 
         {roadmap && (
-          <div className="p-10">
+          <div className="md:p-10 ">
             <RoadmapResult roadmap={roadmap} />
           </div>
         )}
