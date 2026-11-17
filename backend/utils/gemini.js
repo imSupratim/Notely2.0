@@ -6,7 +6,7 @@ dotenv.config();
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export const generateSummary = async (text) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `
                     Summarize the following content clearly for a student.
@@ -22,7 +22,7 @@ export const generateSummary = async (text) => {
 };
 
 export const generateFlashcards = async (text) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `
 You are an AI tutor.
@@ -52,7 +52,7 @@ ${text}
 };
 
 export const generateQuiz = async (text) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `
             You are an AI tutor.

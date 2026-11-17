@@ -36,6 +36,7 @@ const UploadPage = () => {
 
       navigate("/"); // redirect to home (history)
     } catch (err) {
+      console.log(err.response.data);
       setError(err.response?.data?.message || "Upload failed");
     } finally {
       setLoading(false);
@@ -81,6 +82,10 @@ const UploadPage = () => {
           >
             Choose PDF
           </label>
+
+          <p className="text-xs font-semibold text-gray-500 mt-2">
+            Size limit - 5MB
+          </p>
 
           {/* File Info */}
           {file && (

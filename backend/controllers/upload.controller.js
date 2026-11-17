@@ -32,6 +32,6 @@ export const uploadPdf = async (req, res) => {
     });
   } catch (error) {
     console.error("Upload PDF error:", error.message);
-    res.status(500).json({ message: "PDF upload failed" });
+    res.status(500).json({ message: error.message });
   }
 };
